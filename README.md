@@ -31,12 +31,12 @@ JurisPulse follows a modern, scalable client-server architecture:
 - **Workers**: Celery workers backed by Redis for asynchronous document processing and AI tasks.
 - **AI Gateway**: Dedicated microservices for OCR, drafting, and embedding generation, abstracted behind internal services.
 
-## Technology Stack
+## Tech Stack
 
-- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, Zustand, React Router, React Query.
-- **Backend**: Python 3.10+, FastAPI, SQLAlchemy, Alembic, Celery, Redis, Structlog.
-- **Database**: PostgreSQL, Supabase, pgvector.
-- **Infrastructure**: Docker, Nginx.
+- **Frontend**: React (19), TypeScript (6.0), Vite (8.2), Tailwind CSS (4.3), Zustand, React Router, React Query.
+- **Backend**: Python (3.11+), FastAPI, SQLAlchemy, Alembic, Celery, Redis, Structlog.
+- **Database**: PostgreSQL (via Supabase / async psycopg), pgvector.
+- **Infrastructure**: Docker Compose.
 
 ## Repository Structure
 
