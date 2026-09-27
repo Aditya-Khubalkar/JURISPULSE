@@ -49,13 +49,21 @@ The following subsystems are designed and pending implementation:
 
 ## Architecture
 
-JurisPulse follows a modern, scalable client-server architecture:
+```mermaid
+flowchart LR
+    Client[Web Client] --> Frontend[React SPA]
+    Frontend --> API[FastAPI]
+    
+    API --> DB[(PostgreSQL)]
+    API -.-> Redis[(Redis)]
+    Redis -.-> Workers[Celery]
+    Workers --> DB
+```
 
-- **Frontend**: A highly responsive Single Page Application (SPA) built with React, TypeScript, and Vite.
-- **Backend**: A high-performance REST API built with FastAPI, using asynchronous database drivers.
-- **Database**: PostgreSQL (with pgvector for semantic search) managed via SQLAlchemy and Alembic.
-- **Workers**: Celery workers backed by Redis for asynchronous document processing and AI tasks.
-- **AI Gateway**: Dedicated microservices for OCR, drafting, and embedding generation, abstracted behind internal services.
+The system is separated into three core domains:
+- **Frontend Layer**: A React SPA handling UI state and data fetching.
+- **API Layer**: A FastAPI application mapping business logic to specific REST endpoints.
+- **Asynchronous Layer**: Celery workers polling Redis for heavy tasks like OCR.
 
 ## Tech Stack
 
