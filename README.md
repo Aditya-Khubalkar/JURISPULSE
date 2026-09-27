@@ -65,27 +65,27 @@ The system is separated into three core domains:
 - **API Layer**: A FastAPI application mapping business logic to specific REST endpoints.
 - **Asynchronous Layer**: Celery workers polling Redis for heavy tasks like OCR.
 
-## Tech Stack
+## Technology
 
-- **Frontend**: React (19), TypeScript (6.0), Vite (8.2), Tailwind CSS (4.3), Zustand, React Router, React Query.
-- **Backend**: Python (3.11+), FastAPI, SQLAlchemy, Alembic, Celery, Redis, Structlog.
-- **Database**: PostgreSQL (via Supabase / async psycopg), pgvector.
-- **Infrastructure**: Docker Compose.
+| Layer | Core Technologies |
+|---|---|
+| **Frontend** | React 19, TypeScript 6, Vite 8, Tailwind CSS |
+| **Backend** | Python 3.11+, FastAPI, SQLAlchemy, Alembic |
+| **Database** | PostgreSQL (Supabase / asyncpg), pgvector |
+| **Async Workers** | Celery, Redis |
 
-## Repository Structure
+## Repository
 
-The repository is structured as a monorepo for maximum maintainability:
-
-```text
+`	ext
 JurisPulse/
-├── frontend/           # React SPA and design system
-├── backend/            # FastAPI application and AI integrations
-├── infrastructure/     # Docker, Nginx, and deployment configurations
-├── docs/               # Architecture, API, and development documentation
-├── scripts/            # Utility scripts for database and deployment
-├── tests/              # E2E and integration tests
-└── .github/            # CI/CD workflows and issue templates
-```
+├── frontend/           # React SPA
+├── backend/            # FastAPI application
+├── infrastructure/     # Planned: Docker, Nginx, deployment
+├── docs/               # System documentation
+├── scripts/            # Planned: Utility scripts
+├── tests/              # Planned: Test suites
+└── .github/            # GitHub metadata
+`
 
 For a detailed breakdown of the internal architecture, see [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
 
