@@ -1,6 +1,10 @@
 # JurisPulse
 
-JurisPulse is a multi-agent legal workflow orchestration platform designed for legal professionals. It provides advanced case management, document processing, legal research, AI-assisted drafting, and hallucination detection for legal documents.
+JurisPulse is a legal workflow platform built for Indian legal professionals. It connects case management, document processing, and legal research into a single unified system.
+
+## What it is
+
+JurisPulse aims to streamline legal workflows by organizing client cases, integrating OCR for physical documents, and providing a foundation for AI-assisted research and drafting. Currently, the repository contains the initial application scaffolding, the frontend design system, and the core database schema.
 
 ## Features
 
