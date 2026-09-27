@@ -6,14 +6,20 @@ JurisPulse is a legal workflow platform built for Indian legal professionals. It
 
 JurisPulse aims to streamline legal workflows by organizing client cases, integrating OCR for physical documents, and providing a foundation for AI-assisted research and drafting. Currently, the repository contains the initial application scaffolding, the frontend design system, and the core database schema.
 
-## Features
+## Current capabilities
 
-- **Case Management**: End-to-end case tracking, client management, and timeline visualization.
-- **Document Processing**: OCR-enabled document ingestion with local and cloud storage support.
-- **Legal Research**: AI-powered vector search over legal databases for precedents and case laws.
-- **AI-Assisted Drafting**: Automated drafting of legal documents using fine-tuned language models.
-- **Hallucination Detection**: Built-in verification steps to ensure AI-generated legal text is factually accurate.
-- **Collaboration**: Secure team collaboration, notifications, and task management.
+- **Project Scaffold**: Monorepo structure with React frontend and FastAPI backend.
+- **Database Schema**: SQLAlchemy models for cases, users, organizations, documents, and roles.
+- **API Routing**: Defined API endpoints grouped by domain modules.
+- **Frontend Shell**: React application initialized with Vite, Tailwind CSS, and a Zustand store.
+
+## Planned Features
+
+- **Case Management**: Client management and timeline tracking.
+- **Document Processing**: OCR-enabled document ingestion.
+- **Legal Research**: Vector search over legal databases.
+- **AI-Assisted Drafting**: LLM-powered drafting tools.
+- **Verification**: Hallucination detection for legal text.
 
 ## Architecture
 
