@@ -10,9 +10,20 @@ JurisPulse is a legal workflow platform built for the Indian legal ecosystem. It
 
 ---
 
-## What it is
+## The Vision
 
-JurisPulse aims to streamline legal workflows by organizing client cases, integrating OCR for physical documents, and providing a foundation for AI-assisted research and drafting.
+JurisPulse is designed to solve a fundamental problem in Indian legal practice: fragmentation. Client communication, physical document parsing, and legal research typically occur across disconnected tools. 
+
+JurisPulse brings these workflows into a unified, programmable environment.
+
+### Product Overview
+
+| Module | Purpose |
+| --- | --- |
+| **Case Intelligence** | Client management, case timelines, and automated hearing tracking. |
+| **Document Intelligence** | Tesseract OCR ingestion, layout parsing, and semantic chunking. |
+| **Legal Research** | pgvector-backed semantic search across historical case laws. |
+| **AI Workflows** | LLM-assisted drafting and hallucination verification services. |
 
 ## Current capabilities
 
