@@ -122,21 +122,12 @@ npm install
 npm run dev
 ```
 
-## Testing
+## Documentation
 
-Run tests across the stack to ensure everything is working:
-
-```bash
-# Backend tests
-pytest backend/tests/
-
-# Frontend tests
-npm run test --prefix frontend
-```
-
-## Contribution Guidelines
-
-We welcome contributions! Please review our `docs/development` guides for coding standards and branching strategies. Open an issue to discuss major architectural changes before submitting a pull request.
+| Document | Purpose |
+| --- | --- |
+| [Architecture](./PROJECT_STRUCTURE.md) | High-level system architecture and repository map. |
+| [Development Workflow](./docs/development/WORKFLOW.md) | Guidelines for local setup, branching, and testing. |
 
 ## License
 
