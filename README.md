@@ -25,20 +25,27 @@ JurisPulse brings these workflows into a unified, programmable environment.
 | **Legal Research** | pgvector-backed semantic search across historical case laws. |
 | **AI Workflows** | LLM-assisted drafting and hallucination verification services. |
 
-## Current capabilities
+## Project Status
 
-- **Project Scaffold**: Monorepo structure with React frontend and FastAPI backend.
-- **Database Schema**: SQLAlchemy models for cases, users, organizations, documents, and roles.
-- **API Routing**: Defined API endpoints grouped by domain modules.
-- **Frontend Shell**: React application initialized with Vite, Tailwind CSS, and a Zustand store.
+**Active development**
 
-## Planned Features
+JurisPulse is currently in its initial structural phase. The core architecture is established, but feature implementation is ongoing.
 
-- **Case Management**: Client management and timeline tracking.
-- **Document Processing**: OCR-enabled document ingestion.
-- **Legal Research**: Vector search over legal databases.
-- **AI-Assisted Drafting**: LLM-powered drafting tools.
-- **Verification**: Hallucination detection for legal text.
+### Current Implementation
+
+- **Project Scaffold**: Monorepo structure properly segregating frontend and backend logic.
+- **Database Architecture**: SQLAlchemy models for core domains (users, organizations, cases, documents) and Alembic migrations.
+- **API Foundation**: Defined API routing structure grouped by domain modules.
+- **Frontend Design System**: React application initialized with Vite, Tailwind CSS tokens, and a Zustand state store.
+
+### Planned Capabilities
+
+The following subsystems are designed and pending implementation:
+
+- **Client & Case Timelines**: End-to-end case tracking and automated reminders.
+- **OCR Ingestion Pipeline**: Processing physical documents via Tesseract and storing semantic chunks.
+- **AI-Assisted Drafting**: Generating legal text securely using fine-tuned models.
+- **Hallucination Detection**: Built-in verification cross-referencing AI output with established case laws.
 
 ## Architecture
 
