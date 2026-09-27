@@ -67,7 +67,7 @@ alembic upgrade head
 
 ### Backend Setup
 
-1. Create a virtual environment and install dependencies:
+1. Create a virtual environments and install dependencies:
    ```bash
    cd backend
    python -m venv .venv
