@@ -34,3 +34,10 @@ pip-delete-this-directory.txt
 *.swo
 .DS_Store
 Thumbs.db
+
+# Testing and Celery
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+celerybeat-schedule
+celerybeat.pid
