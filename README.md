@@ -1,22 +1,39 @@
-# JurisPulse
+<div align="center">
 
-### Legal intelligence, in motion.
+  <h1>⚖️ JurisPulse</h1>
 
-JurisPulse is a legal workflow platform built for the Indian legal ecosystem. It connects case management, physical document processing, and AI-assisted research into a single, cohesive interface.
+  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=24&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&lines=Legal+intelligence,+in+motion.;Unified+case+management.;AI-assisted+legal+research.;Physical+document+parsing." alt="Typing SVG" />
 
-**React** · **TypeScript** · **FastAPI** · **PostgreSQL** · **Celery** · **Redis**
+  <p>
+    <b>JurisPulse is a legal workflow platform built for the Indian legal ecosystem.</b><br/>
+    It connects case management, physical document processing, and AI-assisted research into a single, cohesive interface.
+  </p>
 
-[Architecture](./PROJECT_STRUCTURE.md) | [Documentation](./docs/development/)
+  <p>
+    <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react" alt="React" /></a>
+    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+    <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" /></a>
+    <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" /></a>
+    <a href="https://redis.io/"><img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" /></a>
+    <a href="https://docs.celeryq.dev/"><img src="https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=celery&logoColor=white" alt="Celery" /></a>
+  </p>
+
+  <p>
+    <a href="./PROJECT_STRUCTURE.md"><b>Architecture</b></a> •
+    <a href="./docs/development/"><b>Documentation</b></a>
+  </p>
+
+</div>
 
 ---
 
-## The Vision
+## 📖 The Vision
 
 JurisPulse is designed to solve a fundamental problem in Indian legal practice: fragmentation. Client communication, physical document parsing, and legal research typically occur across disconnected tools. 
 
 JurisPulse brings these workflows into a unified, programmable environment.
 
-### Product Overview
+### 🚀 Product Overview
 
 | Module | Purpose |
 | --- | --- |
@@ -25,7 +42,7 @@ JurisPulse brings these workflows into a unified, programmable environment.
 | **Legal Research** | pgvector-backed semantic search across historical case laws. |
 | **AI Workflows** | LLM-assisted drafting and hallucination verification services. |
 
-## Project Status
+## 🚧 Project Status
 
 **Active development**
 
@@ -47,7 +64,7 @@ The following subsystems are designed and pending implementation:
 - **AI-Assisted Drafting**: Generating legal text securely using fine-tuned models.
 - **Hallucination Detection**: Built-in verification cross-referencing AI output with established case laws.
 
-## Architecture
+## 🏗️ Architecture
 
 ```mermaid
 flowchart LR
@@ -65,7 +82,7 @@ The system is separated into three core domains:
 - **API Layer**: A FastAPI application mapping business logic to specific REST endpoints.
 - **Asynchronous Layer**: Celery workers polling Redis for heavy tasks like OCR.
 
-## Technology
+## 💻 Technology
 
 | Layer | Core Technologies |
 |---|---|
@@ -74,7 +91,7 @@ The system is separated into three core domains:
 | **Database** | PostgreSQL (Supabase / asyncpg), pgvector |
 | **Async Workers** | Celery, Redis |
 
-## Repository
+## 📂 Repository
 
 ```text
 JurisPulse/
@@ -89,7 +106,7 @@ JurisPulse/
 
 For a detailed breakdown of the internal architecture, see [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 - **Node.js** (v18+)
@@ -122,13 +139,13 @@ npm install
 npm run dev
 ```
 
-## Documentation
+## 📚 Documentation
 
 | Document | Purpose |
 | --- | --- |
 | [Architecture](./PROJECT_STRUCTURE.md) | High-level system architecture and repository map. |
 | [Development Workflow](./docs/development/WORKFLOW.md) | Guidelines for local setup, branching, and testing. |
 
-## License
+## 📄 License
 
 This project is proprietary and confidential. All rights reserved.
