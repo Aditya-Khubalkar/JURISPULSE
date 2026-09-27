@@ -55,62 +55,41 @@ JurisPulse/
 
 For a detailed breakdown of the internal architecture, see [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
 
-## Local Development
+## Getting Started
 
-### Environment Setup
+### 1. Environment Configuration
 
-1. Copy the example environment files:
-   ```bash
-   cp backend/.env.example backend/.env
-   cp frontend/.env.example frontend/.env
-   ```
-2. Update the `.env` files with your local configuration (e.g., Supabase URLs, database credentials).
+`ash
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
+`
+Configure the variables for your local or Supabase database before proceeding.
 
-### Database Setup
+### 2. Backend API Setup
 
-Ensure PostgreSQL is running locally or use Supabase.
-Run the database migrations:
-```bash
+Requires Python 3.11+.
+
+`ash
 cd backend
-alembic upgrade head
-```
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\\Scripts\\activate
+pip install -r requirements.txt
 
-### Backend Setup
+# Run the FastAPI server
+uvicorn app.main:app --reload --port 8000
+`
 
-1. Create a virtual environment and install dependencies:
-   ```bash
-   cd backend
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
-2. Start the FastAPI server:
-   ```bash
-   uvicorn app.main:app --reload --port 8000
-   ```
-3. Start the Celery worker (in a separate terminal):
-   ```bash
-   celery -A app.workers.celery_app worker --loglevel=info
-   ```
+*Note: Database migrations (lembic upgrade head) and Celery workers are configured but may require additional local setup of PostgreSQL/Redis.*
 
-### Frontend Setup
+### 3. Frontend Setup
 
-1. Install Node dependencies:
-   ```bash
-   cd frontend
-   npm install
-   ```
-2. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
+Requires Node.js.
 
-### Docker Setup
-
-You can run the entire stack using Docker Compose:
-```bash
-docker-compose up --build
-```
+`ash
+cd frontend
+npm install
+npm run dev
+`
 
 ## Testing
 
