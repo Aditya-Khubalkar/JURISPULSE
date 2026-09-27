@@ -76,7 +76,7 @@ The system is separated into three core domains:
 
 ## Repository
 
-`	ext
+```text
 JurisPulse/
 ├── frontend/           # React SPA
 ├── backend/            # FastAPI application
@@ -85,40 +85,37 @@ JurisPulse/
 ├── scripts/            # Planned: Utility scripts
 ├── tests/              # Planned: Test suites
 └── .github/            # GitHub metadata
-`
+```
 
 For a detailed breakdown of the internal architecture, see [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
 
 ## Getting Started
 
-### 1. Environment Configuration
+### Prerequisites
+- **Node.js** (v18+)
+- **Python** (3.11+)
+- **PostgreSQL** (Local or Supabase)
 
+### 1. Environment
 ```bash
 cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env
 ```
-Configure the variables for your local or Supabase database before proceeding.
+Update `.env` files with your database credentials.
 
-### 2. Backend API Setup
-
-Requires Python 3.11+.
-
+### 2. Backend API
 ```bash
 cd backend
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-# Run the FastAPI server
+# Run migrations and start server
+alembic upgrade head
 uvicorn app.main:app --reload --port 8000
 ```
 
-*Note: Database migrations (`alembic upgrade head`) and Celery workers are configured but may require additional local setup of PostgreSQL/Redis.*
-
-### 3. Frontend Setup
-
-Requires Node.js.
-
+### 3. Frontend SPA
 ```bash
 cd frontend
 npm install
