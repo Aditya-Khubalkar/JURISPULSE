@@ -44,7 +44,7 @@ JurisPulse brings these workflows into a unified, programmable environment.
 
 ## 🚧 Project Status
 
-**Active development**
+Active development
 
 JurisPulse is currently in its initial structural phase. The core architecture is established, but feature implementation is ongoing.
 
