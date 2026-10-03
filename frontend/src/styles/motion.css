@@ -1,0 +1,141 @@
+/**
+ * Motion / transition CSS utilities for JurisPulse
+ *
+ * Provides reusable animation helpers that components can apply.
+ * Every keyframe name here is also listed in animation.ts (keyframe map).
+ *
+ * Accessibility: All animations are disabled when the user has requested
+ * reduced motion via the OS setting.
+ */
+
+/* ── Keyframes ────────────────────────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(8px);  }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes toast-out {
+  from { opacity: 1; transform: translateY(0);    }
+  to   { opacity: 0; transform: translateY(12px); }
+}
+
+/* ── Animation utility classes ────────────────────────────────────────────── */
+.animate-fade-in       { animation: fade-in        var(--duration-slow)    var(--ease-decelerate) both; }
+.animate-slide-up      { animation: slide-up       var(--duration-slow)    var(--ease-decelerate) both; }
+.animate-slide-down    { animation: slide-down     var(--duration-slow)    var(--ease-decelerate) both; }
+.animate-slide-right   { animation: slide-in-right var(--duration-slower)  var(--ease-decelerate) both; }
+.animate-slide-left    { animation: slide-in-left  var(--duration-slower)  var(--ease-decelerate) both; }
+.animate-scale-in      { animation: scale-in       var(--duration-slow)    var(--ease-spring)     both; }
+.animate-spin          { animation: spin           1s                       linear                 infinite; }
+.animate-pulse         { animation: pulse          2s                       var(--ease-standard)   infinite; }
+.animate-page-in       { animation: page-in        var(--duration-slow)    var(--ease-decelerate) both; }
+
+/* ── Skeleton shimmer ─────────────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-border)         25%,
+    var(--color-surface-overlay) 50%,
+    var(--color-border)         75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s var(--ease-standard) infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Toast animations ─────────────────────────────────────────────────────── */
+.toast-enter { animation: toast-in  var(--duration-slow)    ease forwards; }
+.toast-exit  { animation: toast-out var(--duration-base)    ease forwards; }
+
+/* ── Sidebar / panel slide ────────────────────────────────────────────────── */
+.sidebar-transition {
+  transition:
+    width   var(--duration-slower) var(--ease-standard),
+    opacity var(--duration-slow)   var(--ease-standard);
+}
+
+/* ── Hover lift ───────────────────────────────────────────────────────────── */
+.hover-lift {
+  transition:
+    transform   var(--duration-base) var(--ease-standard),
+    box-shadow  var(--duration-base) var(--ease-standard);
+}
+.hover-lift:hover {
+  transform:  translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Transition base ──────────────────────────────────────────────────────── */
+.transition-base  { transition: all    var(--duration-base)    var(--ease-standard); }
+.transition-color { transition: color  var(--duration-fast)    var(--ease-standard),
+                                background-color var(--duration-fast) var(--ease-standard),
+                                border-color     var(--duration-fast) var(--ease-standard); }
+.transition-shadow{ transition: box-shadow var(--duration-base) var(--ease-standard); }
+.transition-opacity{ transition: opacity  var(--duration-base) var(--ease-standard); }
+
+/* ── Respect reduced motion ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
