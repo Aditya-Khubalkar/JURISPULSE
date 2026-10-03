@@ -1,0 +1,59 @@
+/**
+ * Dark theme CSS variable overrides for JurisPulse
+ *
+ * Applied via the `.dark` class on <html>.  Only semantic surface, ink, and
+ * border tokens change; the primary/accent/danger palettes remain the same
+ * because they are used for intent, not surface.
+ *
+ * Import order: globals.css must be imported before this file.
+ */
+
+/* ── Dark mode semantic overrides ─────────────────────────────────────────── */
+.dark {
+  /* Surface */
+  --color-surface:         #121212;
+  --color-surface-raised:  #1e1e1e;
+  --color-surface-overlay: #2a2a2a;
+
+  /* Ink */
+  --color-ink:           #f0f5ef;
+  --color-ink-secondary: #b8cebe;
+  --color-ink-muted:     #8fa299;
+  --color-ink-disabled:  #65736b;
+
+  /* Border */
+  --color-border:        #333333;
+  --color-border-strong: #4a4a4a;
+
+  /* Shadows become stronger on dark backgrounds */
+  --shadow-xs:  0 1px 2px rgba(0,0,0,0.20);
+  --shadow-sm:  0 1px 4px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.15);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.30), 0 1px 3px rgba(0,0,0,0.20);
+  --shadow-lg:  0 8px 24px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.20);
+  --shadow-xl:  0 16px 48px rgba(0,0,0,0.40), 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-2xl: 0 24px 64px rgba(0,0,0,0.50), 0 8px 24px rgba(0,0,0,0.30);
+}
+
+/* ── System dark preference (fallback when no .dark class is set) ─────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-surface:         #121212;
+    --color-surface-raised:  #1e1e1e;
+    --color-surface-overlay: #2a2a2a;
+
+    --color-ink:           #f0f5ef;
+    --color-ink-secondary: #b8cebe;
+    --color-ink-muted:     #8fa299;
+    --color-ink-disabled:  #65736b;
+
+    --color-border:        #333333;
+    --color-border-strong: #4a4a4a;
+
+    --shadow-xs:  0 1px 2px rgba(0,0,0,0.20);
+    --shadow-sm:  0 1px 4px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.15);
+    --shadow-md:  0 4px 12px rgba(0,0,0,0.30), 0 1px 3px rgba(0,0,0,0.20);
+    --shadow-lg:  0 8px 24px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.20);
+    --shadow-xl:  0 16px 48px rgba(0,0,0,0.40), 0 4px 12px rgba(0,0,0,0.25);
+    --shadow-2xl: 0 24px 64px rgba(0,0,0,0.50), 0 8px 24px rgba(0,0,0,0.30);
+  }
+}
