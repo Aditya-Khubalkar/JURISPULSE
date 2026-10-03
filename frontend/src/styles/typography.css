@@ -1,0 +1,149 @@
+/**
+ * Typography scale CSS utilities for JurisPulse
+ *
+ * Provides semantic text classes that components can apply directly.
+ * These classes mirror the textRole map in typography.ts.
+ *
+ * Naming convention: .text-{role}
+ */
+
+/* ── Display ──────────────────────────────────────────────────────────────── */
+.text-display-lg {
+  font-family:    var(--font-family-sans);
+  font-size:      clamp(2rem, 5vw, 3.5rem);
+  font-weight:    800;
+  line-height:    1;
+  letter-spacing: -0.05em;
+  color: var(--color-ink);
+}
+
+.text-display-sm {
+  font-family:    var(--font-family-sans);
+  font-size:      2.25rem;
+  font-weight:    700;
+  line-height:    1.25;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
+}
+
+/* ── Headings ─────────────────────────────────────────────────────────────── */
+.text-h1 {
+  font-family:    var(--font-family-sans);
+  font-size:      1.875rem;
+  font-weight:    700;
+  line-height:    1.375;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
+}
+
+.text-h2 {
+  font-family:    var(--font-family-sans);
+  font-size:      1.5rem;
+  font-weight:    600;
+  line-height:    1.375;
+  color: var(--color-ink);
+}
+
+.text-h3 {
+  font-family:    var(--font-family-sans);
+  font-size:      1.25rem;
+  font-weight:    600;
+  line-height:    1.5;
+  color: var(--color-ink);
+}
+
+.text-h4 {
+  font-family:    var(--font-family-sans);
+  font-size:      1.125rem;
+  font-weight:    600;
+  line-height:    1.5;
+  color: var(--color-ink);
+}
+
+/* ── Body ─────────────────────────────────────────────────────────────────── */
+.text-body {
+  font-family: var(--font-family-sans);
+  font-size:   1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-ink-secondary);
+}
+
+.text-body-sm {
+  font-family: var(--font-family-sans);
+  font-size:   0.875rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: var(--color-ink-secondary);
+}
+
+/* ── Label ────────────────────────────────────────────────────────────────── */
+.text-label {
+  font-family:    var(--font-family-sans);
+  font-size:      0.875rem;
+  font-weight:    500;
+  line-height:    1.5;
+  letter-spacing: 0.025em;
+  color: var(--color-ink);
+}
+
+.text-label-xs {
+  font-family:    var(--font-family-sans);
+  font-size:      0.75rem;
+  font-weight:    500;
+  line-height:    1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* ── Caption ──────────────────────────────────────────────────────────────── */
+.text-caption {
+  font-family: var(--font-family-sans);
+  font-size:   0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+/* ── Legal / serif ────────────────────────────────────────────────────────── */
+.text-legal {
+  font-family: var(--font-family-serif);
+  font-size:   1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--color-ink);
+}
+
+/* ── Code ─────────────────────────────────────────────────────────────────── */
+.text-code {
+  font-family:      var(--font-family-mono);
+  font-size:        0.875em;
+  font-weight:      400;
+  line-height:      1.625;
+  background-color: var(--color-surface-overlay);
+  padding:          0.125em 0.375em;
+  border-radius:    var(--radius-xs);
+}
+
+/* ── Prose for legal documents ────────────────────────────────────────────── */
+.prose-legal {
+  max-width: 72ch;
+  font-family: var(--font-family-serif);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-ink);
+}
+.prose-legal p       { margin-bottom: 1em; }
+.prose-legal h2      { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5em; font-family: var(--font-family-sans); }
+.prose-legal h3      { font-size: 1.1rem;  font-weight: 600; margin-bottom: 0.5em; font-family: var(--font-family-sans); }
+.prose-legal ul      { list-style: disc; padding-left: 1.5em; margin-bottom: 1em; }
+.prose-legal ol      { list-style: decimal; padding-left: 1.5em; margin-bottom: 1em; }
+.prose-legal li      { margin-bottom: 0.25em; }
+.prose-legal blockquote {
+  border-left: 3px solid var(--color-primary-400);
+  padding-left: 1em;
+  margin-left: 0;
+  color: var(--color-ink-secondary);
+  font-style: italic;
+}
