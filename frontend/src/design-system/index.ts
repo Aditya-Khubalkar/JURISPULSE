@@ -1,5 +1,19 @@
 // Design System Public API
-// Import from '@/design-system' to use any component
+// Import from '@/design-system' to use any component or token
+
+// ── Tokens ──────────────────────────────────────────────────────────────────
+export * from './tokens';
+export type { Theme, ThemeColors, StatusKey } from './tokens/theme';
+export type { StatusKey as ColorStatusKey }   from './tokens/colors';
+export type { TextRole }                       from './tokens/typography';
+export type { SpaceKey }                       from './tokens/spacing';
+export type { RadiusKey, ComponentRadiusKey } from './tokens/radius';
+export type { ShadowKey }                      from './tokens/shadows';
+export type { ZIndexKey }                      from './tokens/zIndex';
+export type { DurationKey, EasingKey }        from './tokens/animation';
+export type { BreakpointKey }                  from './tokens/breakpoints';
+export type { IconSize, IconNameKey }          from './tokens/icons';
+
 
 export { Button, IconButton } from './components/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './components/Button';
