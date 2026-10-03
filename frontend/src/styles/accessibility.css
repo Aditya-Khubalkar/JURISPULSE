@@ -1,0 +1,133 @@
+/**
+ * Accessibility defaults for JurisPulse
+ *
+ * These styles ensure baseline WCAG 2.1 AA compliance:
+ *  - Visible focus indicators on all interactive elements
+ *  - Screen-reader-only utility class
+ *  - Sufficient colour contrast ratios enforced through token choices
+ *  - Skip-navigation link for keyboard users
+ *  - Reduced-motion support (defined in motion.css)
+ */
+
+/* ── Skip navigation link ─────────────────────────────────────────────────── */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary-700);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  z-index: var(--z-toast);
+  text-decoration: none;
+  transition: top var(--duration-fast) var(--ease-standard);
+}
+.skip-nav:focus {
+  top: 1rem;
+}
+
+/* ── Screen-reader only ───────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Visible focus for all interactive elements ─────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring-primary);
+}
+
+/* Remove default outline only when :focus-visible is handled */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Button focus ─────────────────────────────────────────────────────────── */
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring-primary);
+}
+
+/* ── Link focus ───────────────────────────────────────────────────────────── */
+a:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* ── Input focus (primary) ────────────────────────────────────────────────── */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: var(--focus-ring-primary);
+}
+
+/* ── Danger / error input focus ──────────────────────────────────────────── */
+input[aria-invalid="true"]:focus,
+textarea[aria-invalid="true"]:focus {
+  border-color: var(--color-danger-400);
+  box-shadow: var(--focus-ring-danger);
+}
+
+/* ── Disabled states ──────────────────────────────────────────────────────── */
+[disabled],
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ── High-contrast media query adjustments ────────────────────────────────── */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid ButtonText;
+  }
+  .skip-nav {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 2px solid ButtonText;
+  }
+}
+
+/* ── Minimum touch target size ────────────────────────────────────────────── */
+button,
+[role="button"],
+a,
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 2.75rem;  /* 44px – WCAG 2.5.5 */
+}
+
+/* Compact override for dense table cells and icon-only buttons */
+.touch-target-compact {
+  min-height: 2rem;
+}
+
+/* ── Aria live region helper ─────────────────────────────────────────────── */
+[aria-live] {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+[aria-live].visible {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
