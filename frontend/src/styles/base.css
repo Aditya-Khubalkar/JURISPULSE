@@ -1,0 +1,138 @@
+/**
+ * Global base styles for JurisPulse
+ *
+ * Import order in main.tsx:
+ *   1. styles/globals.css   – CSS custom properties (@theme)
+ *   2. styles/dark-theme.css – dark mode overrides
+ *   3. styles/base.css      – this file (resets + base element styles)
+ *   4. styles/forms.css     – form primitives
+ *   5. styles/surfaces.css  – surface / card primitives
+ *   6. styles/typography.css – typography scale helpers
+ *   7. styles/motion.css    – animation utilities
+ */
+
+/* ── Box model reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin:  0;
+  padding: 0;
+}
+
+/* ── Document root ───────────────────────────────────────────────────────── */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color-scheme: light dark;
+  /* Allow .dark class to take over from the JS theme toggle */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  line-height: 1.6;
+  min-height: 100svh;
+}
+
+/* ── App root ────────────────────────────────────────────────────────────── */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+/* ── Heading defaults ────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-sans);
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.25;
+}
+
+/* ── Paragraph defaults ──────────────────────────────────────────────────── */
+p {
+  line-height: 1.6;
+  color: var(--color-ink-secondary);
+}
+
+/* ── Link defaults ───────────────────────────────────────────────────────── */
+a {
+  color: var(--color-primary-600);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+a:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+/* ── List defaults ───────────────────────────────────────────────────────── */
+ul, ol {
+  list-style: none;
+}
+
+/* ── Image defaults ──────────────────────────────────────────────────────── */
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Button defaults ─────────────────────────────────────────────────────── */
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ── Input defaults ──────────────────────────────────────────────────────── */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ── Table defaults ──────────────────────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ── Code defaults ───────────────────────────────────────────────────────── */
+code, kbd, pre, samp {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+}
+
+/* ── HR default ──────────────────────────────────────────────────────────── */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Custom scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-muted); }
+
+/* ── Text selection ──────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+/* ── Focus visible ───────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring-primary);
+}
