@@ -2,7 +2,7 @@
 
 @theme {
   /* ── Color Palette ─────────────────────────────────── */
-  --color-primary-50: #f5fcf2;
+  --color-primary-50:  #f5fcf2;
   --color-primary-100: #e9f8e5;
   --color-primary-200: #cdefca;
   --color-primary-300: #a3df9e;
@@ -16,192 +16,88 @@
   --color-accent-400: #f4c95d;
   --color-accent-500: #edb53a;
 
+  --color-warning-100: #fef3c7;
   --color-warning-400: #f4a261;
   --color-warning-500: #e8883c;
 
+  --color-danger-100: #fde8e3;
   --color-danger-400: #e76f51;
   --color-danger-500: #d4502f;
-  --color-danger-100: #fde8e3;
 
-  --color-surface: #f8faf7;
-  --color-surface-raised: #ffffff;
+  /* ── Semantic surface tokens (light default) ────────── */
+  --color-surface:         #f8faf7;
+  --color-surface-raised:  #ffffff;
   --color-surface-overlay: #f0f5ef;
 
-  --color-ink: #18231d;
-  --color-ink-secondary: #65736b;
-  --color-ink-muted: #8fa299;
+  /* ── Semantic ink tokens (light default) ────────────── */
+  --color-ink:          #18231d;
+  --color-ink-secondary:#65736b;
+  --color-ink-muted:    #8fa299;
   --color-ink-disabled: #b8c4be;
 
-  --color-border: #dde7df;
-  --color-border-strong: #b8cebe;
+  /* ── Border tokens (light default) ──────────────────── */
+  --color-border:       #dde7df;
+  --color-border-strong:#b8cebe;
 
-  /* ── Typography ────────────────────────────────────── */
-  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  /* ── Typography ─────────────────────────────────────── */
+  --font-family-sans:  'Inter', system-ui, -apple-system, sans-serif;
   --font-family-serif: 'Lora', Georgia, serif;
+  --font-family-mono:  'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 
-  /* ── Radius ────────────────────────────────────────── */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 24px;
+  /* ── Radius ─────────────────────────────────────────── */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-3xl:  32px;
   --radius-full: 9999px;
 
-  /* ── Shadows ───────────────────────────────────────── */
-  --shadow-xs: 0 1px 2px rgba(24,35,29,0.06);
-  --shadow-sm: 0 1px 4px rgba(24,35,29,0.08), 0 1px 2px rgba(24,35,29,0.04);
-  --shadow-md: 0 4px 12px rgba(24,35,29,0.1), 0 1px 3px rgba(24,35,29,0.06);
-  --shadow-lg: 0 8px 24px rgba(24,35,29,0.12), 0 2px 6px rgba(24,35,29,0.06);
-  --shadow-xl: 0 16px 48px rgba(24,35,29,0.14), 0 4px 12px rgba(24,35,29,0.08);
-}
+  /* ── Shadows ─────────────────────────────────────────── */
+  --shadow-xs:  0 1px 2px rgba(24,35,29,0.06);
+  --shadow-sm:  0 1px 4px rgba(24,35,29,0.08), 0 1px 2px rgba(24,35,29,0.04);
+  --shadow-md:  0 4px 12px rgba(24,35,29,0.10), 0 1px 3px rgba(24,35,29,0.06);
+  --shadow-lg:  0 8px 24px rgba(24,35,29,0.12), 0 2px 6px rgba(24,35,29,0.06);
+  --shadow-xl:  0 16px 48px rgba(24,35,29,0.14), 0 4px 12px rgba(24,35,29,0.08);
+  --shadow-2xl: 0 24px 64px rgba(24,35,29,0.18), 0 8px 24px rgba(24,35,29,0.10);
 
-/* ── Base Reset ─────────────────────────────────────── */
-@layer base {
-  .dark {
-    --color-surface: #121212;
-    --color-surface-raised: #1e1e1e;
-    --color-surface-overlay: #2a2a2a;
+  /* ── Focus rings ─────────────────────────────────────── */
+  --focus-ring-primary: 0 0 0 3px rgba(94,188,56,0.35);
+  --focus-ring-danger:  0 0 0 3px rgba(231,111,81,0.30);
+  --focus-ring-neutral: 0 0 0 3px rgba(143,162,153,0.30);
 
-    --color-ink: #f0f5ef;
-    --color-ink-secondary: #b8cebe;
-    --color-ink-muted: #8fa299;
-    --color-ink-disabled: #65736b;
+  /* ── Z-index ─────────────────────────────────────────── */
+  --z-base:     0;
+  --z-raised:   1;
+  --z-sticky:   10;
+  --z-nav:      20;
+  --z-fab:      30;
+  --z-dropdown: 100;
+  --z-popover:  110;
+  --z-drawer:   200;
+  --z-backdrop: 300;
+  --z-modal:    310;
+  --z-toast:    400;
+  --z-tooltip:  410;
 
-    --color-border: #333333;
-    --color-border-strong: #4a4a4a;
-  }
-}
+  /* ── Animation durations ─────────────────────────────── */
+  --duration-fast:     100ms;
+  --duration-base:     150ms;
+  --duration-slow:     200ms;
+  --duration-slower:   300ms;
+  --duration-sluggish: 500ms;
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+  /* ── Easings ─────────────────────────────────────────── */
+  --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
 
-html {
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  /* ── Breakpoints ─────────────────────────────────────── */
+  --breakpoint-sm:  640px;
+  --breakpoint-md:  768px;
+  --breakpoint-lg:  1024px;
+  --breakpoint-xl:  1280px;
+  --breakpoint-2xl: 1536px;
 }
-
-body {
-  font-family: var(--font-family-sans);
-  background-color: var(--color-surface);
-  color: var(--color-ink);
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* ── Custom Scrollbar ────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-border-strong);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-ink-muted);
-}
-
-/* ── Focus Styles ────────────────────────────────────── */
-:focus-visible {
-  outline: 2px solid var(--color-primary-400);
-  outline-offset: 2px;
-}
-
-/* ── Selection ───────────────────────────────────────── */
-::selection {
-  background-color: var(--color-primary-200);
-  color: var(--color-primary-900);
-}
-
-/* ── Transitions ─────────────────────────────────────── */
-.transition-base {
-  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ── Sidebar transition ──────────────────────────────── */
-.sidebar-transition {
-  transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 150ms ease;
-}
-
-/* ── Skeleton animation ──────────────────────────────── */
-@keyframes skeleton-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--color-border) 25%,
-    var(--color-surface-overlay) 50%,
-    var(--color-border) 75%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.5s infinite;
-  border-radius: var(--radius-sm);
-}
-
-/* ── Status colors ───────────────────────────────────── */
-.status-active     { color: #1f6b45; background: #e9f8e5; }
-.status-pending    { color: #b45309; background: #fef3c7; }
-.status-closed     { color: #65736b; background: #f0f5ef; }
-.status-urgent     { color: #d4502f; background: #fde8e3; }
-.status-draft      { color: #6366f1; background: #eef2ff; }
-.status-verified   { color: #1f6b45; background: #e9f8e5; }
-.status-reviewing  { color: #92400e; background: #fef3c7; }
-.status-failed     { color: #d4502f; background: #fde8e3; }
-
-/* ── Typography helpers ──────────────────────────────── */
-.text-legal {
-  font-family: var(--font-family-serif);
-  line-height: 1.8;
-}
-
-.heading-display {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-}
-
-/* ── Page transitions ────────────────────────────────── */
-@keyframes page-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.page-enter {
-  animation: page-in 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ── Prose ───────────────────────────────────────────── */
-.prose-legal {
-  max-width: 72ch;
-  font-family: var(--font-family-serif);
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--color-ink);
-}
-.prose-legal p { margin-bottom: 1em; }
-.prose-legal h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5em; }
-.prose-legal h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5em; }
-
-/* ── Toast ───────────────────────────────────────────── */
-@keyframes toast-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes toast-out {
-  from { opacity: 1; }
-  to   { opacity: 0; }
-}
-.toast-enter { animation: toast-in 200ms ease forwards; }
-.toast-exit  { animation: toast-out 150ms ease forwards; }
