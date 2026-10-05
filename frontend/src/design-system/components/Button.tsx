@@ -1,4 +1,4 @@
-import React from 'react';
+/**\n * Primary UI Button component for user interactions.\n */\nimport React from 'react';
 import { cn } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 
