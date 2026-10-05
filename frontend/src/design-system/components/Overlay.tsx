@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+/**\n * Overlay components including Modal and Drawer.\n */\nimport React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
