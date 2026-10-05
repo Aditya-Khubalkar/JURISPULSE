@@ -1,4 +1,4 @@
-import React from 'react';
+/**\n * Display components including Card, Alert, and Skeleton.\n */\nimport React from 'react';
 import { cn } from '@/lib/utils';
 
 // ── Card ──────────────────────────────────────────────────────────────────────
