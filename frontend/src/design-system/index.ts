@@ -1,4 +1,4 @@
-// Design System Public API
+/**\n * Design system component exports.\n */\n// Design System Public API
 // Import from '@/design-system' to use any component or token
 
 // ── Tokens ──────────────────────────────────────────────────────────────────
