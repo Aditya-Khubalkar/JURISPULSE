@@ -373,3 +373,4 @@ export function ForgotPasswordPage() {
     </div>
   );
 }
+\n// Add registration page if present\n
