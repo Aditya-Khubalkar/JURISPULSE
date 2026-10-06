@@ -60,3 +60,4 @@ export const useAuthStore = create<AuthStore>()(
     }
   )
 );
+\n// Add logout flow\n
