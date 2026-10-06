@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/**\n * Authentication pages including Login, Register, and Forgot Password.\n */\nimport React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Scale, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
