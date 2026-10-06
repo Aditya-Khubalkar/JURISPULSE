@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+/**\n * Authentication state management and persistence.\n */\nimport { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { User } from '@/types';
 
