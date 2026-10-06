@@ -60,4 +60,4 @@ export const useAuthStore = create<AuthStore>()(
     }
   )
 );
-\n// Add logout flow\n\n// Add auth loading state\n\n// Add session expiry handling\n\n// Add role-aware navigation\n
+\n// Add logout flow\n\n// Add auth loading state\n\n// Add session expiry handling\n\n// Add role-aware navigation\n\n// Add auth persistence\n
