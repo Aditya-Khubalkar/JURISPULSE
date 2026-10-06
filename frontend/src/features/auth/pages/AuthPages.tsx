@@ -373,4 +373,4 @@ export function ForgotPasswordPage() {
     </div>
   );
 }
-\n// Add registration page if present\n
+\n// Add registration page if present\n\n// Validate auth flow end to end\n
