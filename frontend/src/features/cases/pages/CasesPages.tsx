@@ -282,3 +282,4 @@ export function CaseNewPage() {
     </div>
   );
 }
+\n// Add case card or row\n
