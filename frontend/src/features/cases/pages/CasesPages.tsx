@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/**\n * Cases list view with search and filters.\n */\nimport React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Search, Filter, SortAsc, Eye, Briefcase, ChevronRight } from 'lucide-react';
 import {
