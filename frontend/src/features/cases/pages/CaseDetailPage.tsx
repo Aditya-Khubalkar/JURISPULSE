@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/**\n * Detailed case view with timeline and evidence.\n */\nimport React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   Briefcase, Upload, Search, FileEdit, Calendar, Plus,
