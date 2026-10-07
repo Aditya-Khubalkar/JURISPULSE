@@ -282,4 +282,4 @@ export function CaseNewPage() {
     </div>
   );
 }
-\n// Add case card or row\n\n// Add case search\n\n// Add case filters\n\n// Add case sorting\n
+\n// Add case card or row\n\n// Add case search\n\n// Add case filters\n\n// Add case sorting\n\n// Add case pagination\n
