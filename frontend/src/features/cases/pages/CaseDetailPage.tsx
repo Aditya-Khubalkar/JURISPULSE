@@ -428,4 +428,4 @@ export function CaseDetailPage() {
     </div>
   );
 }
-\n// Add case summary panel\n
+\n// Add case summary panel\n\n// Add case activity section\n
