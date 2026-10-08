@@ -474,4 +474,4 @@ function guessDocumentType(fileName: string): DocumentType {
   if (name.includes('contract') || name.includes('agreement')) return 'contract';
   return 'other';
 }
-\n// Add document detail view\n\n// Add document upload surface\n\n// Add upload progress state\n\n// Add document metadata panel\n\n// Add document preview integration\n\n// Add document filtering\n\n// Add document search\n
+\n// Add document detail view\n\n// Add document upload surface\n\n// Add upload progress state\n\n// Add document metadata panel\n\n// Add document preview integration\n\n// Add document filtering\n\n// Add document search\n\n// Add evidence linking UI\n
