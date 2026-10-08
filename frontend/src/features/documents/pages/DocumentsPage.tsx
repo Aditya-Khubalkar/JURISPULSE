@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+/**\n * Documents list and upload interface.\n */\nimport React, { useState, useRef, useCallback } from 'react';
 import { Search, Upload, FileText, Download, Eye, MoreHorizontal, Cloud, X, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import {
   Card, StatusBadge, Badge, EmptyState, Breadcrumb, Button,
