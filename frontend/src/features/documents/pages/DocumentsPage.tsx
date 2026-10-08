@@ -1,4 +1,7 @@
-/**\n * Documents list and upload interface.\n */\nimport React, { useState, useRef, useCallback } from 'react';
+/**
+ * Documents list and upload interface.
+ */
+import React, { useState, useRef, useCallback } from 'react';
 import { Search, Upload, FileText, Download, Eye, MoreHorizontal, Cloud, X, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import {
   Card, StatusBadge, Badge, EmptyState, Breadcrumb, Button,
@@ -474,4 +477,23 @@ function guessDocumentType(fileName: string): DocumentType {
   if (name.includes('contract') || name.includes('agreement')) return 'contract';
   return 'other';
 }
-\n// Add document detail view\n\n// Add document upload surface\n\n// Add upload progress state\n\n// Add document metadata panel\n\n// Add document preview integration\n\n// Add document filtering\n\n// Add document search\n\n// Add evidence linking UI\n\n// Refine upload error handling\n\n// Validate document and evidence flows\n
+
+// Add document detail view
+
+// Add document upload surface
+
+// Add upload progress state
+
+// Add document metadata panel
+
+// Add document preview integration
+
+// Add document filtering
+
+// Add document search
+
+// Add evidence linking UI
+
+// Refine upload error handling
+
+// Validate document and evidence flows

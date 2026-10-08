@@ -1,4 +1,7 @@
-/**\n * Detailed case view with timeline and evidence.\n */\nimport React, { useState } from 'react';
+/**
+ * Detailed case view with timeline and evidence.
+ */
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   Briefcase, Upload, Search, FileEdit, Calendar, Plus,
@@ -428,4 +431,7 @@ export function CaseDetailPage() {
     </div>
   );
 }
-\n// Add case summary panel\n\n// Add case activity section\n
+
+// Add case summary panel
+
+// Add case activity section

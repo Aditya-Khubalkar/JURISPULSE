@@ -1,4 +1,7 @@
-/**\n * Avatar component for user display.\n */\nimport React from 'react';
+/**
+ * Avatar component for user display.
+ */
+import React from 'react';
 import { cn, getInitials } from '@/lib/utils';
 
 // ── Avatar ────────────────────────────────────────────────────────────────────

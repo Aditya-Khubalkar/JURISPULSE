@@ -1,1 +1,2 @@
-export * from "./pages/AuthPages";\nexport * from "./components/AuthGuard";\n
+export * from "./pages/AuthPages";
+export * from "./components/AuthGuard";

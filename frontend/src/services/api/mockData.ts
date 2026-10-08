@@ -314,7 +314,24 @@ export const mockDrafts: Draft[] = [
     draftType: 'bail_application',
     caseId: 'c3',
     caseName: 'State vs. Vikas Nair',
-    content: `IN THE HIGH COURT OF DELHI AT NEW DELHI\n\nCRIMINAL REVISION PETITION NO. CRL.REV.P/2024/0089\n\nIN THE MATTER OF:\nState of Delhi ... Petitioner\n\nVERSUS\n\nVikas Nair s/o Ramkishore Nair ... Respondent/Accused\n\nAPPLICATION FOR BAIL UNDER SECTION 439 CrPC\n\n1. That the applicant Vikas Nair has been in judicial custody since 12.03.2024 and is presently lodged in Tihar Jail, Delhi.\n\n2. That the applicant is a first-time offender with no prior criminal antecedents.\n\n3. That the allegations against the applicant do not prima facie establish the commission of a heinous offence...`,
+    content: `IN THE HIGH COURT OF DELHI AT NEW DELHI
+
+CRIMINAL REVISION PETITION NO. CRL.REV.P/2024/0089
+
+IN THE MATTER OF:
+State of Delhi ... Petitioner
+
+VERSUS
+
+Vikas Nair s/o Ramkishore Nair ... Respondent/Accused
+
+APPLICATION FOR BAIL UNDER SECTION 439 CrPC
+
+1. That the applicant Vikas Nair has been in judicial custody since 12.03.2024 and is presently lodged in Tihar Jail, Delhi.
+
+2. That the applicant is a first-time offender with no prior criminal antecedents.
+
+3. That the allegations against the applicant do not prima facie establish the commission of a heinous offence...`,
     status: 'reviewing',
     agentUsed: 'Legal Drafter Agent',
     modelUsed: 'Llama 3.1 Legal Drafter',
@@ -353,7 +370,13 @@ export const mockDrafts: Draft[] = [
     draftType: 'legal_notice',
     caseId: 'c2',
     caseName: 'Sharma Builders vs. Anita Gupta',
-    content: `LEGAL NOTICE\n\nTo,\nM/s. Sharma Builders Pvt. Ltd.\n...\n\nThis notice is issued on behalf of Mrs. Anita Gupta...`,
+    content: `LEGAL NOTICE
+
+To,
+M/s. Sharma Builders Pvt. Ltd.
+...
+
+This notice is issued on behalf of Mrs. Anita Gupta...`,
     status: 'draft',
     agentUsed: 'Legal Drafter Agent',
     modelUsed: 'Llama 3.1 Legal Drafter',

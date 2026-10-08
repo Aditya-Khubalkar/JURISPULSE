@@ -1,4 +1,7 @@
-/**\n * Protected route wrapper for authenticated sections.\n */\nimport React from 'react';
+/**
+ * Protected route wrapper for authenticated sections.
+ */
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '@/store/authStore';
 import { ROUTES } from '@/constants';

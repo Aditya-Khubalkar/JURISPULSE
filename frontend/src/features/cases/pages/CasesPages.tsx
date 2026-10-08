@@ -1,4 +1,7 @@
-/**\n * Cases list view with search and filters.\n */\nimport React, { useState } from 'react';
+/**
+ * Cases list view with search and filters.
+ */
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Search, Filter, SortAsc, Eye, Briefcase, ChevronRight } from 'lucide-react';
 import {
@@ -282,4 +285,15 @@ export function CaseNewPage() {
     </div>
   );
 }
-\n// Add case card or row\n\n// Add case search\n\n// Add case filters\n\n// Add case sorting\n\n// Add case pagination\n\n// Validate cases navigation\n
+
+// Add case card or row
+
+// Add case search
+
+// Add case filters
+
+// Add case sorting
+
+// Add case pagination
+
+// Validate cases navigation

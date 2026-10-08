@@ -1,4 +1,7 @@
-/**\n * Badge component for status and labels.\n */\nimport React from 'react';
+/**
+ * Badge component for status and labels.
+ */
+import React from 'react';
 import { cn } from '@/lib/utils';
 
 // ── Badge ─────────────────────────────────────────────────────────────────────

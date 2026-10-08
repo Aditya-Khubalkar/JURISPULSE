@@ -1,4 +1,7 @@
-/**\n * Authentication pages including Login, Register, and Forgot Password.\n */\nimport React, { useState } from 'react';
+/**
+ * Authentication pages including Login, Register, and Forgot Password.
+ */
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Scale, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
@@ -373,4 +376,7 @@ export function ForgotPasswordPage() {
     </div>
   );
 }
-\n// Add registration page if present\n\n// Validate auth flow end to end\n
+
+// Add registration page if present
+
+// Validate auth flow end to end

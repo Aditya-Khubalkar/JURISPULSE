@@ -136,7 +136,18 @@ export function AIWorkspacePage() {
     const aiMsg: AIMessage = {
       id: (Date.now() + 1).toString(),
       role: 'assistant',
-      content: `Based on the case context for ${mockCases.find((c) => c.id === selectedCase)?.title}, here is my analysis:\n\nThe case involves ${mockCases.find((c) => c.id === selectedCase)?.description ?? 'the selected legal matter'}.\n\nBased on retrieved precedents, particularly Satender Kumar Antil vs CBI (2022 SCC OnLine SC 825), the court's approach to bail in similar matters suggests a liberal approach where the accused has no prior criminal antecedents.\n\nKey considerations:\n1. Duration of custody\n2. Nature of allegations\n3. Risk of flight or tampering\n\nThis analysis is grounded in retrieved legal precedents and should be verified against current case facts.`,
+      content: `Based on the case context for ${mockCases.find((c) => c.id === selectedCase)?.title}, here is my analysis:
+
+The case involves ${mockCases.find((c) => c.id === selectedCase)?.description ?? 'the selected legal matter'}.
+
+Based on retrieved precedents, particularly Satender Kumar Antil vs CBI (2022 SCC OnLine SC 825), the court's approach to bail in similar matters suggests a liberal approach where the accused has no prior criminal antecedents.
+
+Key considerations:
+1. Duration of custody
+2. Nature of allegations
+3. Risk of flight or tampering
+
+This analysis is grounded in retrieved legal precedents and should be verified against current case facts.`,
       agent: 'Research + Analysis Agent',
       sources: ['Satender Kumar Antil (2022)', 'Arnesh Kumar (2014)', 'Case documents'],
       confidence: 0.84,

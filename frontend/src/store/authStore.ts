@@ -1,4 +1,7 @@
-/**\n * Authentication state management and persistence.\n */\nimport { create } from 'zustand';
+/**
+ * Authentication state management and persistence.
+ */
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { User } from '@/types';
 
@@ -60,4 +63,13 @@ export const useAuthStore = create<AuthStore>()(
     }
   )
 );
-\n// Add logout flow\n\n// Add auth loading state\n\n// Add session expiry handling\n\n// Add role-aware navigation\n\n// Add auth persistence\n
+
+// Add logout flow
+
+// Add auth loading state
+
+// Add session expiry handling
+
+// Add role-aware navigation
+
+// Add auth persistence

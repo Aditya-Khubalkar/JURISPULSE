@@ -1,4 +1,7 @@
-/**\n * Form input primitives including Input, Select, and Textarea.\n */\nimport React from 'react';
+/**
+ * Form input primitives including Input, Select, and Textarea.
+ */
+import React from 'react';
 import { cn } from '@/lib/utils';
 
 // ── Input ─────────────────────────────────────────────────────────────────────

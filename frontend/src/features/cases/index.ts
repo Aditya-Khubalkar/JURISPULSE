@@ -1,1 +1,2 @@
-export * from "./pages/CasesPages";\nexport * from "./pages/CaseDetailPage";\n
+export * from "./pages/CasesPages";
+export * from "./pages/CaseDetailPage";
