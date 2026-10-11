@@ -87,7 +87,9 @@ def create_application() -> FastAPI:
     """Create and configure the FastAPI application."""
 
     app = FastAPI(
-        title="JurisPulse API",
+        title="JurisPulse AI Legal Intelligence Platform API",
+    version="1.0.0",
+    docs_url="/docs",
         description=(
             "Multi-agent legal workflow orchestration platform for Indian legal professionals. "
             "Provides case management, document processing, legal research, AI-assisted drafting, "
