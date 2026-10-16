@@ -1,0 +1,1 @@
+class HearingService: pass
