@@ -47,7 +47,8 @@ logger = get_logger("jurispulse.app")
 # ---------------------------------------------------------------------------
 
 @asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+async # Production safe exception logging
+def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """
     Application lifespan context manager.
     Runs on startup and teardown.
