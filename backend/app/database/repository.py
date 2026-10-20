@@ -3,6 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from .base import Base
 T = TypeVar("T", bound=Base)
+# Scoped cross-tenant repository isolation
 class BaseRepository(Generic[T]):
     def __init__(self, model: Type[T], session: AsyncSession):
         self.model = model
