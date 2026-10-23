@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  db:
+    image: ankane/pgvector
+    ports: ["5432:5432"]
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+  api:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    ports: ["8000:8000"]
