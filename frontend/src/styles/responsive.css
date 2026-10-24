@@ -1,0 +1,5 @@
+/* Responsive Breakpoints & Container Queries */
+@media (max-width: 640px) {
+  .responsive-container { padding-left: 1rem; padding-right: 1rem; }
+  .hide-mobile { display: none !important; }
+}
