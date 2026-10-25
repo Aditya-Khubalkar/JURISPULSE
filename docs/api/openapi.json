@@ -1,0 +1,8 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "JurisPulse API",
+    "version": "1.0.0-rc1",
+    "description": "Enterprise Legal Intelligence Engine"
+  }
+}
