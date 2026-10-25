@@ -16,11 +16,13 @@
     <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" /></a>
     <a href="https://redis.io/"><img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" /></a>
     <a href="https://docs.celeryq.dev/"><img src="https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=celery&logoColor=white" alt="Celery" /></a>
+    <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" /></a>
   </p>
 
   <p>
     <a href="./PROJECT_STRUCTURE.md"><b>Architecture</b></a> •
-    <a href="./docs/development/"><b>Documentation</b></a>
+    <a href="./docs/"><b>Documentation</b></a> •
+    <a href="./CHANGELOG.md"><b>Changelog</b></a>
   </p>
 
 </div>
@@ -42,27 +44,24 @@ JurisPulse brings these workflows into a unified, programmable environment.
 | **Legal Research** | pgvector-backed semantic search across historical case laws. |
 | **AI Workflows** | LLM-assisted drafting and hallucination verification services. |
 
-## 🚧 Project Status
+## 🚀 Project Status
 
-**Active development**
+**Release Candidate (`v1.0.0-rc1`) — Feature Complete**
 
-JurisPulse is currently in its initial structural phase. The core architecture is established, but feature implementation is ongoing.
+JurisPulse has progressed through full core feature implementation, integration hardening, and release preparation.
 
-### Current Implementation
+### Implemented Subsystems
 
-- **Project Scaffold**: Monorepo structure properly segregating frontend and backend logic.
-- **Database Architecture**: SQLAlchemy models for core domains (users, organizations, cases, documents) and Alembic migrations.
-- **API Foundation**: Defined API routing structure grouped by domain modules.
-- **Frontend Design System**: React application initialized with Vite, Tailwind CSS tokens, and a Zustand state store.
-
-### Planned Capabilities
-
-The following subsystems are designed and pending implementation:
-
-- **Client & Case Timelines**: End-to-end case tracking and automated reminders.
-- **OCR Ingestion Pipeline**: Processing physical documents via Tesseract and storing semantic chunks.
-- **AI-Assisted Drafting**: Generating legal text securely using fine-tuned models.
-- **Hallucination Detection**: Built-in verification cross-referencing AI output with established case laws.
+- **Case & Client Management**: Full case lifecycle management, automated court hearing schedules, order tracking, and client communication workflows.
+- **Document & OCR Ingestion Pipeline**: Asynchronous multi-page legal document ingestion powered by Tesseract OCR, layout parsing, and semantic chunk extraction.
+- **Legal Entity Timelines**: Chronological milestone tracking, hearing dates, and automated procedural reminders.
+- **Semantic Legal Research**: Vector retrieval with `pgvector` indexing historical Indian Supreme Court and High Court precedents.
+- **AI-Assisted Drafting**: Context-aware legal drafting for bail petitions, pleadings, notices, and affidavits.
+- **Hallucination Verification**: Citation checking and proposition verification cross-referencing AI outputs against canonical legal databases.
+- **Asynchronous Task Architecture**: Distributed Celery task execution on Redis for OCR, document embedding, background indexing, and real-time notifications.
+- **Security & Multi-Tenancy**: Enterprise RBAC, strict tenant data isolation, secure authentication, rate limiting, and HTTP security headers.
+- **Testing & Quality Gates**: Unit and integration test suites for both frontend and backend with GitHub Actions CI workflows.
+- **Containerized Deployment**: Multi-stage Docker configurations, Nginx reverse proxy, and Docker Compose orchestration.
 
 ## 🏗️ Architecture
 
@@ -71,37 +70,38 @@ flowchart LR
     Client[Web Client] --> Frontend[React SPA]
     Frontend --> API[FastAPI]
     
-    API --> DB[(PostgreSQL)]
+    API --> DB[(PostgreSQL + pgvector)]
     API -.-> Redis[(Redis)]
-    Redis -.-> Workers[Celery]
+    Redis -.-> Workers[Celery Workers]
     Workers --> DB
 ```
 
 The system is separated into three core domains:
-- **Frontend Layer**: A React SPA handling UI state and data fetching.
-- **API Layer**: A FastAPI application mapping business logic to specific REST endpoints.
-- **Asynchronous Layer**: Celery workers polling Redis for heavy tasks like OCR.
+- **Frontend Layer**: A React SPA handling UI state, interactive case timelines, and data visualization.
+- **API Layer**: A FastAPI application mapping business logic to REST endpoints with JWT auth and rate limiting.
+- **Asynchronous Layer**: Celery workers polling Redis for intensive tasks including OCR, embeddings, and notification broadcasts.
 
 ## 💻 Technology
 
 | Layer | Core Technologies |
 |---|---|
-| **Frontend** | React 19, TypeScript 6, Vite 8, Tailwind CSS |
-| **Backend** | Python 3.11+, FastAPI, SQLAlchemy, Alembic |
-| **Database** | PostgreSQL (Supabase / asyncpg), pgvector |
+| **Frontend** | React 19, TypeScript 6, Vite, Tailwind CSS, Zustand |
+| **Backend** | Python 3.11+, FastAPI, SQLAlchemy (Async), Alembic |
+| **Database** | PostgreSQL (asyncpg), pgvector extension |
 | **Async Workers** | Celery, Redis |
+| **Infrastructure** | Docker, Docker Compose, Nginx |
 
 ## 📂 Repository
 
 ```text
 JurisPulse/
-├── frontend/           # React SPA
-├── backend/            # FastAPI application
-├── infrastructure/     # Planned: Docker, Nginx, deployment
-├── docs/               # System documentation
-├── scripts/            # Planned: Utility scripts
-├── tests/              # Planned: Test suites
-└── .github/            # GitHub metadata
+├── frontend/           # React 19 SPA & Design System
+├── backend/            # FastAPI application & Celery workers
+├── infrastructure/     # Docker, Docker Compose, Nginx configs
+├── docs/               # System documentation & API specs
+├── scripts/            # Health checks, test runners & security audit
+├── tests/              # Test suites & quality gates
+└── .github/            # GitHub Actions CI workflows
 ```
 
 For a detailed breakdown of the internal architecture, see [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
@@ -109,18 +109,27 @@ For a detailed breakdown of the internal architecture, see [PROJECT_STRUCTURE.md
 ## 🚀 Getting Started
 
 ### Prerequisites
-- **Node.js** (v18+)
-- **Python** (3.11+)
-- **PostgreSQL** (Local or Supabase)
+- **Docker & Docker Compose** (Recommended) or
+- **Node.js** (v18+) & **Python** (3.11+) with **PostgreSQL** & **Redis**
 
-### 1. Environment
+### Quickstart with Docker (Recommended)
+```bash
+docker compose -f infrastructure/docker/docker-compose.yml up --build
+```
+This spins up the API, Celery worker, PostgreSQL (with pgvector), and Redis automatically.
+
+---
+
+### Manual Local Setup
+
+#### 1. Environment
 ```bash
 cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env
 ```
-Update `.env` files with your database credentials.
+Update `.env` files with your local configuration.
 
-### 2. Backend API
+#### 2. Backend API
 ```bash
 cd backend
 python -m venv .venv
@@ -132,7 +141,7 @@ alembic upgrade head
 uvicorn app.main:app --reload --port 8000
 ```
 
-### 3. Frontend SPA
+#### 3. Frontend SPA
 ```bash
 cd frontend
 npm install
@@ -144,7 +153,11 @@ npm run dev
 | Document | Purpose |
 | --- | --- |
 | [Architecture](./PROJECT_STRUCTURE.md) | High-level system architecture and repository map. |
-| [Development Workflow](./docs/development/WORKFLOW.md) | Guidelines for local setup, branching, and testing. |
+| [System Design](./docs/architecture/SYSTEM_DESIGN.md) | Detailed technical architecture and data flow. |
+| [API Reference](./docs/api/OVERVIEW.md) | OpenAPI specification and endpoint documentation. |
+| [Database Schema](./docs/database/SCHEMA.md) | Relational and vector schema documentation. |
+| [Deployment Guide](./docs/deployment/DEPLOYMENT.md) | Production Docker, Nginx, and cloud deployment. |
+| [Development Workflow](./docs/development/SETUP.md) | Guidelines for local setup, branching, and testing. |
 
 ## 📄 License
 
