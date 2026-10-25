@@ -17,13 +17,13 @@ export interface BadgeProps {
 }
 
 const badgeVariants: Record<BadgeVariant, string> = {
-  default: 'bg-primary-100 text-primary-700 border-primary-200',
-  success: 'bg-primary-100 text-primary-700 border-primary-200',
-  warning: 'bg-amber-50 text-amber-700 border-amber-200',
-  danger: 'bg-red-50 text-red-700 border-red-200',
-  info: 'bg-blue-50 text-blue-700 border-blue-200',
-  purple: 'bg-purple-50 text-purple-700 border-purple-200',
-  neutral: 'bg-gray-50 text-gray-600 border-gray-200',
+  default: 'bg-primary-500/15 text-primary-700 dark:text-primary-300 border-primary-500/30',
+  success: 'bg-primary-500/15 text-primary-700 dark:text-primary-300 border-primary-500/30',
+  warning: 'bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30',
+  danger: 'bg-red-500/15 text-red-700 dark:text-red-300 border-red-500/30',
+  info: 'bg-blue-500/15 text-blue-700 dark:text-blue-300 border-blue-500/30',
+  purple: 'bg-purple-500/15 text-purple-700 dark:text-purple-300 border-purple-500/30',
+  neutral: 'bg-surface-overlay text-ink-secondary border-border',
 };
 
 const dotColors: Record<BadgeVariant, string> = {

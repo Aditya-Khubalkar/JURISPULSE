@@ -62,13 +62,13 @@ export function StatCard({ label, value, icon, change, changeLabel, colorClass, 
           <p className="text-sm text-ink-secondary font-medium">{label}</p>
           <p className="text-2xl font-bold text-ink mt-1">{value}</p>
           {change !== undefined && (
-            <p className={cn('text-xs mt-1', isPositive ? 'text-primary-700' : 'text-red-600')}>
+            <p className={cn('text-xs mt-1', isPositive ? 'text-primary-600 dark:text-primary-400' : 'text-red-500')}>
               {isPositive ? '↑' : '↓'} {Math.abs(change)}% {changeLabel}
             </p>
           )}
         </div>
         {icon && (
-          <div className={cn('w-10 h-10 rounded-[8px] flex items-center justify-center', colorClass ?? 'bg-primary-100 text-primary-700')}>
+          <div className={cn('w-10 h-10 rounded-[8px] flex items-center justify-center', colorClass ?? 'bg-primary-500/15 text-primary-600 dark:text-primary-400')}>
             {icon}
           </div>
         )}
@@ -169,10 +169,10 @@ export interface AlertProps {
 }
 
 const alertStyles = {
-  info: 'bg-blue-50 border-blue-200 text-blue-800',
-  success: 'bg-primary-100 border-primary-200 text-primary-700',
-  warning: 'bg-amber-50 border-amber-200 text-amber-800',
-  danger: 'bg-red-50 border-red-200 text-red-800',
+  info: 'bg-blue-500/10 border-blue-500/30 text-blue-700 dark:text-blue-300 dark:bg-blue-950/40 dark:border-blue-800/50',
+  success: 'bg-primary-500/10 border-primary-500/30 text-primary-700 dark:text-primary-300 dark:bg-primary-950/40 dark:border-primary-800/50',
+  warning: 'bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300 dark:bg-amber-950/40 dark:border-amber-800/50',
+  danger: 'bg-red-500/10 border-red-500/30 text-red-700 dark:text-red-300 dark:bg-red-950/40 dark:border-red-800/50',
 };
 
 export function Alert({ variant = 'info', title, children, className, onDismiss }: AlertProps) {

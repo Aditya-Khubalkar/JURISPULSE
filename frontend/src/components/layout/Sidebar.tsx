@@ -113,7 +113,7 @@ function useNavGroups(): NavGroup[] {
 
 function SidebarLogo({ collapsed }: { collapsed: boolean }) {
   return (
-    <div className={cn('flex items-center h-16 px-4 border-b border-primary-100', collapsed && 'justify-center px-2')}>
+    <div className={cn('flex items-center h-16 px-4 border-b border-border', collapsed && 'justify-center px-2')}>
       <div className="flex items-center gap-2.5">
         <div className="w-8 h-8 rounded-[8px] bg-primary-400 flex items-center justify-center shrink-0">
           <Scale className="w-4.5 h-4.5 text-primary-900" strokeWidth={2.5} />
@@ -144,7 +144,7 @@ function SidebarNavItem({ item, collapsed }: { item: NavItem; collapsed: boolean
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400',
         isActive
           ? 'bg-primary-400 text-primary-900 shadow-sm'
-          : 'text-ink-secondary hover:bg-primary-100 hover:text-ink',
+          : 'text-ink-secondary hover:bg-surface-overlay hover:text-ink',
         collapsed && 'justify-center px-2'
       )}
     >
@@ -204,7 +204,7 @@ export function Sidebar() {
         <NavLink
           to={ROUTES.SETTINGS_PROFILE}
           className={cn(
-            'flex items-center gap-2.5 px-2 py-2 rounded-[6px] hover:bg-primary-100 transition-colors',
+            'flex items-center gap-2.5 px-2 py-2 rounded-[6px] hover:bg-surface-overlay transition-colors',
             sidebarCollapsed && 'justify-center'
           )}
         >
@@ -226,7 +226,7 @@ export function Sidebar() {
         className={cn(
           'absolute -right-3 top-20 w-6 h-6 bg-surface-raised border border-border rounded-full',
           'flex items-center justify-center shadow-sm text-ink-secondary hover:text-ink',
-          'transition-colors hover:border-primary-400 hover:text-primary-700',
+          'transition-colors hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400'
         )}
       >

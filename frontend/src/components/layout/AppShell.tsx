@@ -10,33 +10,26 @@ import { ToastContainer } from '@/components/feedback/Toast';
 
 export function AppShell() {
   const { sidebarCollapsed } = useUIStore();
+  const sidebarWidth = sidebarCollapsed ? 56 : 220;
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface flex">
       {/* Sidebar */}
       <Sidebar />
 
-      {/* Top Header - offset by sidebar width */}
+      {/* Main content column offset cleanly by sidebar */}
       <div
-        className={cn(
-          'transition-all duration-200',
-          sidebarCollapsed ? 'lg:pl-[56px]' : 'lg:pl-[220px]'
-        )}
+        className="flex-1 flex flex-col min-w-0 transition-all duration-200"
+        style={{ marginLeft: `${sidebarWidth}px` }}
       >
         <TopHeader />
-      </div>
 
-      {/* Main content area */}
-      <main
-        className={cn(
-          'pt-14 transition-all duration-200 min-h-screen',
-          sidebarCollapsed ? 'lg:pl-[56px]' : 'lg:pl-[220px]'
-        )}
-      >
-        <div className="p-4 sm:p-6 max-w-[1600px] mx-auto page-enter">
-          <Outlet />
-        </div>
-      </main>
+        <main className="flex-1 min-h-[calc(100vh-3.5rem)]">
+          <div className="p-4 sm:p-6 max-w-[1600px] w-full mx-auto page-enter">
+            <Outlet />
+          </div>
+        </main>
+      </div>
 
       {/* Global overlays */}
       <CommandPalette />

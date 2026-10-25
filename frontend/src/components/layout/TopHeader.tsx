@@ -38,7 +38,7 @@ export function TopHeader() {
   };
 
   return (
-    <header className="fixed top-0 right-0 left-0 h-14 bg-surface-raised border-b border-border z-20 flex items-center px-4 gap-3">
+    <header className="sticky top-0 h-14 bg-surface-raised border-b border-border z-20 flex items-center px-4 gap-3 w-full shrink-0">
       {/* Mobile menu toggle */}
       <button
         onClick={toggleSidebar}

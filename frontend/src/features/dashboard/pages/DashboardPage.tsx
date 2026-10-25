@@ -38,9 +38,9 @@ function QuickAction({ icon, label, onClick }: { icon: React.ReactNode; label: s
   return (
     <button
       onClick={onClick}
-      className="flex flex-col items-center gap-2 p-3 rounded-[8px] bg-surface-raised border border-border hover:border-primary-400 hover:bg-primary-50 transition-all duration-150 text-center group"
+      className="flex flex-col items-center gap-2 p-3 rounded-[8px] bg-surface-raised border border-border hover:border-primary-400 hover:bg-surface-overlay transition-all duration-150 text-center group"
     >
-      <div className="w-9 h-9 rounded-[8px] bg-primary-100 text-primary-700 flex items-center justify-center group-hover:bg-primary-400 group-hover:text-primary-900 transition-colors">
+      <div className="w-9 h-9 rounded-[8px] bg-primary-500/15 text-primary-600 dark:text-primary-400 flex items-center justify-center group-hover:bg-primary-400 group-hover:text-primary-900 transition-colors">
         {icon}
       </div>
       <span className="text-xs font-medium text-ink-secondary group-hover:text-ink">{label}</span>
@@ -99,11 +99,11 @@ export function DashboardPage() {
 
       {/* ── Urgent Alert ─────────────────────────────────────── */}
       {urgentTasks.length > 0 && (
-        <div className="flex items-center gap-3 px-4 py-3 bg-red-50 border border-red-200 rounded-[8px]">
+        <div className="flex items-center gap-3 px-4 py-3 bg-red-500/10 border border-red-500/30 dark:bg-red-950/40 dark:border-red-800/50 rounded-[8px]">
           <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
-          <p className="text-sm text-red-700 font-medium">
+          <p className="text-sm text-red-600 dark:text-red-300 font-medium">
             {urgentTasks.length} critical task{urgentTasks.length > 1 ? 's' : ''} need your attention —
-            <button onClick={() => navigate(ROUTES.TASKS)} className="ml-1 underline font-semibold">
+            <button onClick={() => navigate(ROUTES.TASKS)} className="ml-1 underline font-semibold text-red-700 dark:text-red-200 hover:opacity-80">
               View tasks
             </button>
           </p>
@@ -116,42 +116,42 @@ export function DashboardPage() {
           label="Active Cases"
           value={mockAnalytics.activeCases}
           icon={<Briefcase className="w-5 h-5" />}
-          colorClass="bg-primary-100 text-primary-700"
+          colorClass="bg-primary-500/15 text-primary-600 dark:text-primary-400"
           onClick={() => navigate(ROUTES.CASES)}
         />
         <StatCard
           label="Upcoming Hearings"
           value={upcomingHearings.length}
           icon={<Calendar className="w-5 h-5" />}
-          colorClass="bg-blue-50 text-blue-600"
+          colorClass="bg-blue-500/15 text-blue-600 dark:text-blue-400"
           onClick={() => navigate(ROUTES.HEARINGS)}
         />
         <StatCard
           label="Pending Tasks"
           value={pendingTasks.length}
           icon={<CheckSquare className="w-5 h-5" />}
-          colorClass="bg-amber-50 text-amber-600"
+          colorClass="bg-amber-500/15 text-amber-600 dark:text-amber-400"
           onClick={() => navigate(ROUTES.TASKS)}
         />
         <StatCard
           label="Docs for Review"
           value={mockDocuments.filter((d) => d.status === 'needs_review').length}
           icon={<FileText className="w-5 h-5" />}
-          colorClass="bg-purple-50 text-purple-600"
+          colorClass="bg-purple-500/15 text-purple-600 dark:text-purple-400"
           onClick={() => navigate(ROUTES.DOCUMENTS)}
         />
         <StatCard
           label="Drafts in Review"
           value={mockDrafts.filter((d) => d.status === 'reviewing').length}
           icon={<FileEdit className="w-5 h-5" />}
-          colorClass="bg-orange-50 text-orange-600"
+          colorClass="bg-orange-500/15 text-orange-600 dark:text-orange-400"
           onClick={() => navigate(ROUTES.DRAFTS)}
         />
         <StatCard
           label="Verification Alerts"
           value={verificationAlerts.length}
           icon={<ShieldCheck className="w-5 h-5" />}
-          colorClass="bg-red-50 text-red-500"
+          colorClass="bg-red-500/15 text-red-600 dark:text-red-400"
           onClick={() => navigate(ROUTES.VERIFICATION)}
         />
       </div>
@@ -166,7 +166,7 @@ export function DashboardPage() {
               <h2 className="font-semibold text-ink">Upcoming Hearings</h2>
               <button
                 onClick={() => navigate(ROUTES.HEARINGS)}
-                className="text-xs text-primary-700 hover:underline flex items-center gap-1"
+                className="text-xs text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
               >
                 View all <ArrowRight className="w-3 h-3" />
               </button>
@@ -185,11 +185,11 @@ export function DashboardPage() {
                     className="flex items-start gap-3 p-3 bg-surface rounded-[8px] hover:bg-surface-overlay transition-colors cursor-pointer"
                     onClick={() => navigate(ROUTES.CASES)}
                   >
-                    <div className="w-10 h-10 rounded-[8px] bg-primary-100 flex flex-col items-center justify-center shrink-0 text-center">
-                      <span className="text-[10px] font-bold text-primary-700 uppercase leading-tight">
+                    <div className="w-10 h-10 rounded-[8px] bg-primary-500/15 flex flex-col items-center justify-center shrink-0 text-center">
+                      <span className="text-[10px] font-bold text-primary-600 dark:text-primary-400 uppercase leading-tight">
                         {formatDate(h.date, 'MMM')}
                       </span>
-                      <span className="text-base font-bold text-primary-700 leading-tight">
+                      <span className="text-base font-bold text-primary-600 dark:text-primary-400 leading-tight">
                         {formatDate(h.date, 'd')}
                       </span>
                     </div>
@@ -217,7 +217,7 @@ export function DashboardPage() {
               <h2 className="font-semibold text-ink">My Active Cases</h2>
               <button
                 onClick={() => navigate(ROUTES.CASES)}
-                className="text-xs text-primary-700 hover:underline flex items-center gap-1"
+                className="text-xs text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
               >
                 View all <ArrowRight className="w-3 h-3" />
               </button>
@@ -226,14 +226,14 @@ export function DashboardPage() {
               {activeCases.slice(0, 4).map((c) => (
                 <div
                   key={c.id}
-                  className="flex items-center gap-3 p-3 rounded-[8px] hover:bg-primary-50 transition-colors cursor-pointer"
+                  className="flex items-center gap-3 p-3 rounded-[8px] hover:bg-surface-overlay transition-colors cursor-pointer"
                   onClick={() => navigate(ROUTES.CASE_DETAIL(c.id))}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => e.key === 'Enter' && navigate(ROUTES.CASE_DETAIL(c.id))}
                 >
-                  <div className="w-8 h-8 rounded-[6px] bg-primary-100 flex items-center justify-center shrink-0">
-                    <Scale className="w-4 h-4 text-primary-700" />
+                  <div className="w-8 h-8 rounded-[6px] bg-primary-500/15 flex items-center justify-center shrink-0">
+                    <Scale className="w-4 h-4 text-primary-600 dark:text-primary-400" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-ink truncate">{c.title}</p>
@@ -305,7 +305,7 @@ export function DashboardPage() {
               <h2 className="font-semibold text-ink">Pending Tasks</h2>
               <button
                 onClick={() => navigate(ROUTES.TASKS)}
-                className="text-xs text-primary-700 hover:underline flex items-center gap-1"
+                className="text-xs text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
               >
                 View all <ArrowRight className="w-3 h-3" />
               </button>
@@ -314,7 +314,7 @@ export function DashboardPage() {
               {pendingTasks.slice(0, 4).map((t) => (
                 <div
                   key={t.id}
-                  className="flex items-start gap-2 p-2.5 rounded-[6px] hover:bg-primary-50 transition-colors cursor-pointer"
+                  className="flex items-start gap-2 p-2.5 rounded-[6px] hover:bg-surface-overlay transition-colors cursor-pointer"
                   onClick={() => navigate(ROUTES.TASKS)}
                 >
                   <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${
@@ -364,7 +364,7 @@ export function DashboardPage() {
               <h2 className="font-semibold text-ink">Recent Documents</h2>
               <button
                 onClick={() => navigate(ROUTES.DOCUMENTS)}
-                className="text-xs text-primary-700 hover:underline flex items-center gap-1"
+                className="text-xs text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
               >
                 View all <ArrowRight className="w-3 h-3" />
               </button>
@@ -373,11 +373,11 @@ export function DashboardPage() {
               {recentDocs.map((d) => (
                 <div
                   key={d.id}
-                  className="flex items-center gap-2.5 p-2 rounded-[6px] hover:bg-primary-50 transition-colors cursor-pointer"
+                  className="flex items-center gap-2.5 p-2 rounded-[6px] hover:bg-surface-overlay transition-colors cursor-pointer"
                   onClick={() => navigate(ROUTES.DOCUMENTS)}
                 >
-                  <div className="w-7 h-7 rounded-[4px] bg-red-50 flex items-center justify-center shrink-0">
-                    <FileText className="w-3.5 h-3.5 text-red-400" />
+                  <div className="w-7 h-7 rounded-[4px] bg-red-500/15 flex items-center justify-center shrink-0">
+                    <FileText className="w-3.5 h-3.5 text-red-500" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-medium text-ink truncate">{d.title}</p>
@@ -390,19 +390,19 @@ export function DashboardPage() {
 
           {/* Verification Alerts */}
           {verificationAlerts.length > 0 && (
-            <Card className="border-amber-200 bg-amber-50">
+            <Card className="border-amber-500/30 bg-amber-500/10 dark:bg-amber-950/30 dark:border-amber-800/50">
               <div className="flex items-center gap-2 mb-3">
-                <ShieldCheck className="w-4 h-4 text-amber-600" />
-                <h2 className="font-semibold text-amber-800">Verification Alerts</h2>
+                <ShieldCheck className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                <h2 className="font-semibold text-amber-800 dark:text-amber-200">Verification Alerts</h2>
               </div>
               {verificationAlerts.map((n) => (
-                <div key={n.id} className="text-xs text-amber-700 p-2 bg-surface-raised rounded-[6px] border border-amber-200 mb-2">
+                <div key={n.id} className="text-xs text-amber-700 dark:text-amber-300 p-2 bg-surface-raised rounded-[6px] border border-amber-500/20 mb-2">
                   {n.message}
                 </div>
               ))}
               <button
                 onClick={() => navigate(ROUTES.VERIFICATION)}
-                className="text-xs text-amber-700 font-semibold hover:underline flex items-center gap-1"
+                className="text-xs text-amber-700 dark:text-amber-300 font-semibold hover:underline flex items-center gap-1"
               >
                 Review all alerts <ArrowRight className="w-3 h-3" />
               </button>
