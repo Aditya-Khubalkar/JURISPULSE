@@ -20,12 +20,12 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const buttonVariants: Record<ButtonVariant, string> = {
-  primary: 'bg-primary-400 hover:bg-[#5cbc38] text-primary-900 font-semibold shadow-sm hover:shadow-md border border-transparent',
-  secondary: 'bg-surface-raised hover:bg-primary-50 text-ink border border-border shadow-sm hover:border-primary-400',
-  ghost: 'bg-transparent hover:bg-primary-100 text-ink border border-transparent',
-  outline: 'bg-transparent hover:bg-primary-50 text-primary-700 border border-primary-700',
-  danger: 'bg-[#e76f51] hover:bg-[#d4502f] text-white font-semibold border border-transparent shadow-sm',
-  warning: 'bg-[#f4a261] hover:bg-[#e8883c] text-white font-semibold border border-transparent shadow-sm',
+  primary: 'bg-primary-500 hover:bg-primary-600 text-white font-semibold shadow-xs hover:shadow-sm border border-primary-600/30 transition-all',
+  secondary: 'bg-surface-raised hover:bg-surface-overlay text-ink border border-border shadow-xs hover:border-border-strong transition-all',
+  ghost: 'bg-transparent hover:bg-surface-overlay text-ink border border-transparent transition-all',
+  outline: 'bg-transparent hover:bg-surface-overlay text-primary-600 dark:text-primary-400 border border-primary-500/40 transition-all',
+  danger: 'bg-rose-600 hover:bg-rose-700 text-white font-semibold border border-transparent shadow-xs transition-all',
+  warning: 'bg-amber-600 hover:bg-amber-700 text-white font-semibold border border-transparent shadow-xs transition-all',
 };
 
 const buttonSizes: Record<ButtonSize, string> = {

@@ -48,12 +48,17 @@ export function TopHeader() {
         <Menu className="w-4 h-4" />
       </button>
 
-      {/* Greeting (desktop) */}
-      <div className="hidden md:block flex-1">
-        <span className="text-sm text-ink-secondary">
-          {getGreeting()},{' '}
-          <span className="font-semibold text-ink">{user?.name?.split(' ')[0]}</span>
-        </span>
+      {/* Context / Breadcrumb (desktop) */}
+      <div className="hidden md:flex items-center gap-2 flex-1">
+        <div className="flex items-center gap-2 text-xs text-ink-secondary">
+          <span className="font-semibold text-ink">JurisPulse</span>
+          <span className="text-ink-muted">/</span>
+          <span className="text-ink">Dashboard</span>
+          <span className="inline-flex items-center gap-1.5 ml-2.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            Live Sync
+          </span>
+        </div>
       </div>
 
       {/* Right actions */}

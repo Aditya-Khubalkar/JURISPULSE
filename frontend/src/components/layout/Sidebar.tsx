@@ -111,20 +111,34 @@ function useNavGroups(): NavGroup[] {
 
 // ── Sidebar Logo ──────────────────────────────────────────────────────────────
 
-function SidebarLogo({ collapsed }: { collapsed: boolean }) {
+function SidebarLogo({ collapsed, onToggle }: { collapsed: boolean; onToggle: () => void }) {
   return (
-    <div className={cn('flex items-center h-16 px-4 border-b border-border', collapsed && 'justify-center px-2')}>
-      <div className="flex items-center gap-2.5">
-        <div className="w-8 h-8 rounded-[8px] bg-primary-400 flex items-center justify-center shrink-0">
-          <Scale className="w-4.5 h-4.5 text-primary-900" strokeWidth={2.5} />
+    <div className={cn('flex items-center justify-between h-14 px-3.5 border-b border-border', collapsed && 'justify-center px-2')}>
+      <div className="flex items-center gap-2.5 min-w-0">
+        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-primary-600 flex items-center justify-center shrink-0 shadow-xs shadow-primary-500/20">
+          <Scale className="w-4 h-4 text-white" strokeWidth={2.5} />
         </div>
         {!collapsed && (
-          <div>
-            <span className="text-base font-bold text-ink tracking-tight">JurisPulse</span>
-            <div className="text-[10px] text-ink-secondary font-medium -mt-0.5">Legal Workspace</div>
+          <div className="min-w-0">
+            <span className="text-sm font-bold text-ink tracking-tight flex items-center gap-1.5">
+              JurisPulse
+              <span className="text-[9px] uppercase tracking-wider font-semibold px-1 py-0.2 rounded bg-primary-500/15 text-primary-600 dark:text-primary-400 border border-primary-500/30">
+                PRO
+              </span>
+            </span>
+            <div className="text-[10px] text-ink-secondary font-medium">Legal Workspace</div>
           </div>
         )}
       </div>
+      {!collapsed && (
+        <button
+          onClick={onToggle}
+          aria-label="Collapse sidebar"
+          className="p-1 rounded-md text-ink-secondary hover:text-ink hover:bg-surface-overlay transition-colors"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+      )}
     </div>
   );
 }
@@ -143,12 +157,12 @@ function SidebarNavItem({ item, collapsed }: { item: NavItem; collapsed: boolean
         'group flex items-center gap-2.5 px-3 py-2 rounded-[6px] text-sm font-medium transition-all duration-100',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400',
         isActive
-          ? 'bg-primary-400 text-primary-900 shadow-sm'
+          ? 'bg-primary-500/15 text-primary-700 dark:text-primary-300 font-semibold border-l-2 border-primary-500 shadow-xs'
           : 'text-ink-secondary hover:bg-surface-overlay hover:text-ink',
         collapsed && 'justify-center px-2'
       )}
     >
-      <span className={cn('shrink-0', isActive ? 'text-primary-900' : 'text-ink-secondary group-hover:text-ink')}>
+      <span className={cn('shrink-0', isActive ? 'text-primary-600 dark:text-primary-400' : 'text-ink-secondary group-hover:text-ink')}>
         {item.icon}
       </span>
       {!collapsed && (
@@ -181,7 +195,7 @@ export function Sidebar() {
       )}
     >
       {/* Logo */}
-      <SidebarLogo collapsed={sidebarCollapsed} />
+      <SidebarLogo collapsed={sidebarCollapsed} onToggle={toggleSidebar} />
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto py-3 px-2 space-y-0.5">
@@ -200,12 +214,12 @@ export function Sidebar() {
       </nav>
 
       {/* Profile Footer */}
-      <div className="p-2 border-t border-border">
+      <div className="p-2 border-t border-border flex items-center justify-between">
         <NavLink
           to={ROUTES.SETTINGS_PROFILE}
           className={cn(
-            'flex items-center gap-2.5 px-2 py-2 rounded-[6px] hover:bg-surface-overlay transition-colors',
-            sidebarCollapsed && 'justify-center'
+            'flex items-center gap-2.5 px-2 py-1.5 rounded-[6px] hover:bg-surface-overlay transition-colors flex-1 min-w-0',
+            sidebarCollapsed && 'justify-center px-0'
           )}
         >
           <Avatar name={user?.name ?? 'User'} size="sm" />
@@ -215,27 +229,17 @@ export function Sidebar() {
               <p className="text-[10px] text-ink-secondary capitalize">{user?.role}</p>
             </div>
           )}
-          {!sidebarCollapsed && <User className="w-3.5 h-3.5 text-ink-secondary shrink-0" />}
         </NavLink>
+        {sidebarCollapsed && (
+          <button
+            onClick={toggleSidebar}
+            aria-label="Expand sidebar"
+            className="p-1 rounded text-ink-secondary hover:text-ink mt-1"
+          >
+            <ChevronRight className="w-3.5 h-3.5" />
+          </button>
+        )}
       </div>
-
-      {/* Collapse Toggle */}
-      <button
-        onClick={toggleSidebar}
-        aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-        className={cn(
-          'absolute -right-3 top-20 w-6 h-6 bg-surface-raised border border-border rounded-full',
-          'flex items-center justify-center shadow-sm text-ink-secondary hover:text-ink',
-          'transition-colors hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400'
-        )}
-      >
-        {sidebarCollapsed ? (
-          <ChevronRight className="w-3 h-3" />
-        ) : (
-          <ChevronLeft className="w-3 h-3" />
-        )}
-      </button>
     </aside>
   );
 }

@@ -15,7 +15,7 @@ export interface CardProps {
   onClick?: () => void;
 }
 
-const cardPadding = { none: '', sm: 'p-3', md: 'p-4 sm:p-5', lg: 'p-6' };
+const cardPadding = { none: '', sm: 'p-3.5', md: 'p-4 sm:p-5', lg: 'p-6' };
 
 export function Card({ children, className, padding = 'md', hoverable, clickable, onClick }: CardProps) {
   const Tag = clickable || onClick ? 'button' : 'div';
@@ -23,10 +23,10 @@ export function Card({ children, className, padding = 'md', hoverable, clickable
     <Tag
       onClick={onClick}
       className={cn(
-        'bg-surface-raised rounded-[12px] border border-border shadow-sm',
+        'bg-surface-raised rounded-xl border border-border shadow-xs dark:border-white/[0.08] dark:shadow-sm',
         cardPadding[padding],
-        (hoverable || clickable || onClick) && 'hover:shadow-md hover:border-border-strong transition-all duration-150',
-        (clickable || onClick) && 'cursor-pointer text-left w-full',
+        (hoverable || clickable || onClick) && 'hover:shadow-md hover:border-border-strong dark:hover:border-white/20 transition-all duration-150',
+        (clickable || onClick) && 'cursor-pointer text-left w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400',
         className
       )}
     >
@@ -52,25 +52,26 @@ export function StatCard({ label, value, icon, change, changeLabel, colorClass, 
   const isPositive = change !== undefined && change >= 0;
   return (
     <Card
-      className={className}
+      className={cn('group relative overflow-hidden transition-all duration-150', className)}
+      padding="sm"
       hoverable={!!onClick}
       clickable={!!onClick}
       onClick={onClick}
     >
-      <div className="flex items-start justify-between">
-        <div className="flex-1">
-          <p className="text-sm text-ink-secondary font-medium">{label}</p>
-          <p className="text-2xl font-bold text-ink mt-1">{value}</p>
-          {change !== undefined && (
-            <p className={cn('text-xs mt-1', isPositive ? 'text-primary-600 dark:text-primary-400' : 'text-red-500')}>
-              {isPositive ? '↑' : '↓'} {Math.abs(change)}% {changeLabel}
-            </p>
-          )}
-        </div>
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-xs text-ink-secondary font-medium truncate">{label}</p>
         {icon && (
-          <div className={cn('w-10 h-10 rounded-[8px] flex items-center justify-center', colorClass ?? 'bg-primary-500/15 text-primary-600 dark:text-primary-400')}>
+          <div className={cn('w-7 h-7 rounded-md flex items-center justify-center shrink-0 text-xs', colorClass ?? 'bg-primary-500/15 text-primary-600 dark:text-primary-400')}>
             {icon}
           </div>
+        )}
+      </div>
+      <div className="flex items-baseline justify-between mt-2.5">
+        <p className="text-2xl font-bold tracking-tight text-ink">{value}</p>
+        {change !== undefined && (
+          <p className={cn('text-[11px] font-semibold', isPositive ? 'text-emerald-500' : 'text-red-500')}>
+            {isPositive ? '↑' : '↓'} {Math.abs(change)}% {changeLabel}
+          </p>
         )}
       </div>
     </Card>
