@@ -21,8 +21,7 @@
 
   <p>
     <a href="./PROJECT_STRUCTURE.md"><b>Architecture</b></a> •
-    <a href="./docs/"><b>Documentation</b></a> •
-    <a href="./CHANGELOG.md"><b>Changelog</b></a>
+    <a href="./docs/"><b>Documentation</b></a>
   </p>
 
 </div>
@@ -44,13 +43,13 @@ JurisPulse brings these workflows into a unified, programmable environment.
 | **Legal Research** | pgvector-backed semantic search across historical case laws. |
 | **AI Workflows** | LLM-assisted drafting and hallucination verification services. |
 
-## 🚀 Project Status
+## 🚧 Project Status
 
-**Release Candidate (`v1.0.0-rc1`) — Feature Complete**
+**Active Development**
 
-JurisPulse has progressed through full core feature implementation, integration hardening, and release preparation.
+JurisPulse is in active feature development, connecting case management, physical document processing, and AI-assisted research into a single, cohesive interface.
 
-### Implemented Subsystems
+### Current Implementation
 
 - **Case & Client Management**: Full case lifecycle management, automated court hearing schedules, order tracking, and client communication workflows.
 - **Document & OCR Ingestion Pipeline**: Asynchronous multi-page legal document ingestion powered by Tesseract OCR, layout parsing, and semantic chunk extraction.
